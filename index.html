@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KOLKATA_VALENTINE_v5.0</title>
+    <style>
+        :root {
+            --pookie-pink: #ff85a2;
+            --ribbon-red: #d90429;
+            --soft-cream: #fff5f5;
+            --gold: #ffb700;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            background: var(--soft-cream);
+            font-family: 'Comic Sans MS', 'cursive', sans-serif;
+            overflow-x: hidden;
+            color: #4a4a4a;
+        }
+
+        /* Floating Elements Layer */
+        .float-layer {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .emoji { position: absolute; font-size: 2rem; animation: floatUp 6s infinite ease-in; opacity: 0.8; }
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .section {
+            background: white;
+            border: 3px solid var(--pookie-pink);
+            border-radius: 30px;
+            padding: 25px;
+            margin: 20px 0;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 10px 10px 0px var(--pookie-pink);
+            position: relative;
+        }
+
+        h1, h2 { color: var(--ribbon-red); text-align: center; margin-top: 10px; }
+
+        .author-box { border-left: 10px solid var(--pookie-pink); text-align: left; }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .btn-main { background: var(--ribbon-red); color: white; box-shadow: 0 5px 15px rgba(217,4,41,0.4); }
+        .btn-secondary { background: var(--pookie-pink); color: white; }
+        .btn-gold { background: var(--gold); color: white; }
+
+        #noBtn {
+            position: fixed;
+            z-index: 999;
+            background: #6c757d;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: none;
+            transition: 0.05s linear;
+        }
+
+        .ribbon {
+            width: 130px; height: 30px;
+            background: var(--ribbon-red);
+            color: white;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .status-text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            color: #888;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="float-layer" id="pookieLayer"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.pagalworld.com.se/files/download/id/2384" type="audio/mpeg">
+    </audio>
+
+    <div class="content-wrapper">
+        
+        <div class="section">
+            <div class="ribbon">ENCRYPTED</div>
+            <div class="status-text">LOCATION_LOCKED: CITY_OF_JOY</div>
+            <h1>Be My Valentine? 🎀</h1>
+            <p>Scanning for the absolute pookie... Match confirmed. 💖</p>
+            <button id="yesBtn" class="btn btn-main" onclick="onYes()">YES, I'LL BE YOUR VALENTINE!</button>
+            <button id="noBtn" onmouseover="dodge()" onclick="fail()">No</button>
+        </div>
+
+        <div class="section">
+            <div class="ribbon" style="background: #ffb3c1;">THE ONE</div>
+            <h2>Meet My Valentine ✨</h2>
+            <p>The girl who makes my heart skip a beat even when I'm just looking at my code.</p>
+            <a href="https://www.instagram.com/minimal.chaotic__oo7?igsh=YTN4dzVzY2cwaGps&utm_source=qr" target="_blank" class="btn btn-secondary">Open Biometric Profile 🕵️‍♀️</a>
+        </div>
+
+        <div class="section author-box">
+            <div class="ribbon" style="background: #4a4a4a;">THE DEV</div>
+            <h2>About the Author 🙋‍♂️</h2>
+            <p><strong>The Good:</strong> Poetic soul, loves a good ghazal, and is officially the best person you'll find in all of Kolkata.</p>
+            <p><strong>The Bad:</strong> Terrible at choosing restaurants, but excellent at making sure you have a great time anyway.</p>
+            <p><em>Verdict: 10/10 Recommendation. Highly Compatible.</em></p>
+        </div>
+
+        <div class="section">
+            <div class="ribbon" style="background: var(--gold);">KOLKATA OPS</div>
+            <h2>What Are We Gonna Do? 🍦</h2>
+            <p>I've calculated the optimal romantic route through the City of Joy.</p>
+            <a href="https://www.tripoto.com/west-bengal/trips/12-hours-guide-with-your-valentine-in-kolkata-3b7de0cf3023739e" target="_blank" class="btn btn-main">12-Hour Kolkata Guide 📂</a>
+            <a href="https://www.zomato.com/kolkata/romantic-restaurants" target="_blank" class="btn btn-gold">Romantic Dining 🍴</a>
+        </div>
+
+    </div>
+
+    <script>
+        const layer = document.getElementById('pookieLayer');
+        const emojis = ['🐿️', '🐇', '🎈', '🌹', '🎀', '🫧', '✨', '🧸'];
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const music = document.getElementById('bgMusic');
+        let scale = 1;
+
+        function spawnPookie() {
+            const el = document.createElement('div');
+            el.className = 'emoji';
+            el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            layer.appendChild(el);
+            setTimeout(() => el.remove(), 7000);
+        }
+        setInterval(spawnPookie, 400);
+
+        function dodge() {
+            music.play().catch(() => {});
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            noBtn.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+            scale += 0.3;
+            yesBtn.style.transform = `scale(${scale})`;
+            if (navigator.vibrate) navigator.vibrate(30);
+        }
+
+        function onYes() {
+            window.location.href = "https://in.pinterest.com/ideas/valentine-jeans-outfit/911401986372/";
+        }
+
+        function fail() {
+            window.location.href = "https://share.google/urSwHp7qszo1rXH71";
+        }
+
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            dodge();
+        });
+    </script>
+</body>
+</html>
